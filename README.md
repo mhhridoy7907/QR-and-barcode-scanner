@@ -1,3 +1,4 @@
+### Uplode Date: <i>29 April 2026</i>
 # QR and Barcode Scanner
 
 <div align="center">
@@ -9,9 +10,15 @@
 
 A smart web-based QR Code and Barcode scanner that works with image upload (no camera required). Fast, lightweight, and fully browser-based.
 
-[Live Demo](#) • [Report Bug](https://github.com/mhhridoy7907/QR-and-barcode-scanner/issues) • [Request Feature](https://github.com/mhhridoy7907/QR-and-barcode-scanner/issues)
 
 </div>
+
+### Demo View
+![Demo View](demo.jpg)
+
+
+![Demo View](demo.jpg)
+
 
 ---
 
