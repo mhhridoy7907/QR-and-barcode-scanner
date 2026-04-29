@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MH HRIDOY</title>
+<link rel="icon" href="https://i.pinimg.com/736x/64/62/d2/6462d22c90c6388a1b8dc48645d57baf.jpg">
+<script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+
+<link rel="stylesheeet" herf="style.css">
+</head>
+
+<body>
+
+<div class="card">
+    <h1>MH HRIDOY</h1>
+</div>
+
+<div class="app">
+
+    <h2> QR And Barcode Scanner</h2>
+
+    <!-- TAB BUTTONS -->
+    <div class="tabs">
+        <div class="tab active" onclick="setMode('qr')"> QR Scan</div>
+        <div class="tab" onclick="setMode('bar')"> Barcode</div>
+    </div>
+
+    <input type="file" id="fileInput" accept="image/*">
+
+    <img id="preview">
+
+    <button class="btn" onclick="scanNow()"> Scan Now</button>
+
+    <div class="result" id="result">Upload image </div>
+
+</div>
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+      <script src="funtion.js"> </script>
+
+</body>
+</html>
