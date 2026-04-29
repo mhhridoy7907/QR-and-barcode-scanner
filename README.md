@@ -17,7 +17,7 @@ A smart web-based QR Code and Barcode scanner that works with image upload (no c
 ![Demo View](demo.jpg)
 
 
-![Demo View](demo.jpg)
+![Demo View](demo1.jpg)
 
 
 ---
