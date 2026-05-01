@@ -1,44 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MH HRIDOY</title>
-<link rel="icon" href="https://i.pinimg.com/736x/64/62/d2/6462d22c90c6388a1b8dc48645d57baf.jpg">
-<script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
-
-<link rel="stylesheeet" herf="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MH HRIDOY</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/64/62/d2/6462d22c90c6388a1b8dc48645d57baf.jpg">
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <link rel="stylesheet" herf="style.css">
 </head>
-
 <body>
+    <!-- THEME TOGGLE -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌓</button>
 
-<div class="card">
-    <h1>MH HRIDOY</h1>
-</div>
-
-<div class="app">
-
-    <h2> QR And Barcode Scanner</h2>
-
-    <!-- TAB BUTTONS -->
-    <div class="tabs">
-        <div class="tab active" onclick="setMode('qr')"> QR Scan</div>
-        <div class="tab" onclick="setMode('bar')"> Barcode</div>
+    <!-- HEADER -->
+    <div class="header">
+        <h1> QR & Barcode Scanner</h1>
+        <p>@mh hridoy</p>
     </div>
 
-    <input type="file" id="fileInput" accept="image/*">
+    <!-- CONTAINER -->
+    <div class="container">
+        <!-- MAIN APP -->
+        <div class="app">
+            <!-- TABS -->
+            <div class="tabs">
+                <button class="tab active" onclick="setMode('qr')">🔲 QR Code</button>
+                <button class="tab" onclick="setMode('barcode')">📊 Barcode</button>
+            </div>
 
-    <img id="preview">
+            <!-- MODE SELECTOR -->
+            <div class="mode-selector">
+                <button class="mode-btn active" onclick="setInputMode('file')" title="Upload Image">📤 Image</button>
+                <button class="mode-btn" onclick="setInputMode('camera')" title="Use Camera">📷 Camera</button>
+            </div>
 
-    <button class="btn" onclick="scanNow()"> Scan Now</button>
+            <!-- INPUT SECTION -->
+            <div class="input-section">
+                <!-- FILE INPUT -->
+                <div id="fileMode" class="file-input-wrapper">
+                    <input type="file" id="fileInput" accept="image/*">
+                    <label for="fileInput" class="file-input-label" id="dragDropZone">
+                        📁 Click or drag image here
+                    </label>
+                </div>
 
-    <div class="result" id="result">Upload image </div>
+                <!-- CAMERA INPUT -->
+                <div id="cameraMode" style="display: none;">
+                    <video id="cameraStream" playsinline></video>
+                    <div class="camera-controls">
+                        <button onclick="startCamera()">▶ Start Camera</button>
+                        <button onclick="capturePhoto()">📸 Capture</button>
+                        <button onclick="stopCamera()">⏹ Stop</button>
+                    </div>
+                    <img id="cameraPreview" alt="Camera preview">
+                </div>
+            </div>
 
-</div>
+            <!-- PREVIEW -->
+            <div class="preview-section">
+                <img id="preview" alt="Preview">
+            </div>
 
-<canvas id="canvas" style="display:none;"></canvas>
+            <!-- LOADING SPINNER -->
+            <div class="spinner" id="spinner"></div>
 
-      <script src="funtion.js"> </script>
+            <!-- SCAN BUTTON -->
+            <button class="btn" onclick="scanNow()" id="scanBtn">🔍 Scan Now</button>
 
+            <!-- RESULT -->
+            <div class="result-section">
+                <div class="result" id="result">
+                    <span class="result-content">Upload an image or use camera to get started</span>
+                </div>
+                <div class="success-message" id="successMsg">✅ Copied to clipboard!</div>
+            </div>
+        </div>
+
+        <!-- HISTORY PANEL -->
+        <div class="history-panel" id="historyPanel">
+            <h3>
+                📜 History
+                <span style="cursor: pointer; font-size: 0.8em;" onclick="toggleHistory()">━━</span>
+            </h3>
+            <div id="historyList"></div>
+            <button class="clear-history" onclick="clearHistory()">🗑️ Clear History</button>
+        </div>
+    </div>
+
+    <!-- HIDDEN CANVAS -->
+    <canvas id="canvas" style="display: none;"></canvas>
+
+    <script src="funtion.js"></script>
+   
 </body>
 </html>
