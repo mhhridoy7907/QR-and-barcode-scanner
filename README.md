@@ -14,10 +14,10 @@ A smart web-based QR Code and Barcode scanner that works with image upload (no c
 </div>
 
 ### Demo View
-![Demo View](demo.jpg)
+![Demo View](qr.jpg)
 
 
-![Demo View](demo1.jpg)
+![Demo View](qr1.jpg)
 
 
 ---
